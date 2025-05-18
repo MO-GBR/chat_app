@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import "tailwindcss";
+
+@plugin "daisyui" {
+    themes: all;
+}
+
+@theme {
+    --font-Lobster: "Lobster", sans-serif;
+}
+
+@layer base {
+    * {
+        @apply m-0 p-0 box-border;
+    }
+
+    body {
+        @apply overflow-x-hidden bg-gray-100 min-h-screen;
+    }
+
+    input {
+        @apply outline-none border-none w-[90%] bg-transparent p-1;
+    }
+
+    textarea {
+        @apply outline-none border-none w-full bg-transparent p-1;
+    }
+
+    img {
+        @apply object-cover h-auto max-w-full;
+    }
+
+    header {
+        @apply w-full bg-gradient-to-b from-gray-300 to-white border-b border-b-gray-300 p-3 z-1 flex items-center justify-around fixed top-0 left-0 right-0;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply bg-gray-300 text-black font-bold text-lg rounded-lg p-2 m-2 cursor-pointer;
+    }
+
+    .btn:hover {
+        @apply bg-gray-400;
+    }
+
+    .btn:active {
+        @apply bg-gray-400;
+    }
+
+    .btn:disabled {
+        @apply bg-gray-100 cursor-not-allowed;
+    }
+
+    .card {
+        @apply h-fit w-[27rem] max-md:w-[18rem] py-5 border border-gray-300 rounded-2xl m-5 shadow-md flex flex-col items-center justify-center;
+    }
+
+    .preview {
+        @apply rounded-xl border border-base-300 overflow-hidden bg-base-100 shadow-lg;
+    }
+
+    .themes {
+        @apply h-full container mx-auto px-4 pt-20 max-w-5xl;
+    }
+
+    .NoChatSelected {
+        @apply w-full flex flex-1 flex-col items-center justify-center p-16 bg-base-100/50;
+    }
+
+    .sidebar {
+        @apply h-full w-20 lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200;
+    }
+
+    .user {
+        @apply w-full p-3 flex items-center gap-3 hover:bg-base-300 transition-colors;
+    }
+
+    .toolbar {
+        @apply absolute h-[80vh] z-1 w-20 max-md:w-16 border rounded-2xl right-3 top-26 max-md:top-20 bg-white border-gray-200 shadow-lg flex flex-col items-center justify-center gap-10;
+    }
+
+    .toolbarHead {
+        @apply w-20 h-20 z-1 max-md:w-16 max-md:h-16 max-md:top-2 rounded-2xl absolute right-3 top-5 cursor-pointer bg-white border-gray-200 shadow-lg flex flex-col items-center justify-center;
+    }
+
+    .ChatCard {
+        @apply w-70 h-70 rounded-2xl bg-base-100 border border-gray-200 shadow-lg flex flex-col items-center justify-center;
+    }
+}
+
+@layer utilities {
+    .flexCenter {
+        @apply flex items-center justify-center;
+    }
+
+    .flexBetween {
+        @apply flex items-center justify-between;
+    }
+
+    .flexAround {
+        @apply flex items-center justify-around;
+    }
+
+    /* ========== Gradients ========== */
+
+    .g1 {
+        @apply bg-gradient-to-l from-gray-200 to-white;
+    }
+
+    /* ========= Pages ========== */
+    /* Sign up */
+    .flash {
+        @apply p-3 h-20 w-20 rounded-xl m-3;
+    }
+
+    .label {
+        @apply w-full flex items-center justify-between border m-3 rounded-2xl p-2 max-md:flex-col max-md:w-[200px];
+    }
+
+    .msg {
+        @apply font-bold p-2 rounded-2xl text-center text-white bg-green-700;
+    }
+
+    .err {
+        @apply font-bold p-2 rounded-2xl text-center text-white bg-red-700;
+    }
+
+    /* Home */
+    .NoUsers {
+        @apply w-full h-screen flex items-center justify-center text-4xl font-bold;
+    }
+
+    /* Search */
+    .search {
+        @apply bg-base-100 border-base-300 border rounded-full p-3 flex items-center shadow w-[80%] mt-10 max-md:mt-20;
+    }
+
+    /* ========= Components ========= */
+    /* Header */
+    .logo {
+        @apply font-Lobster font-bold text-3xl mx-3 text-black;
+    }
+
+    .search {
+        @apply flex items-center bg-white border border-gray-400 rounded-full w-[80%];
+    }
+
+    /* Card */
+    .chat {
+        @apply bg-violet-600 text-white font-bold m-3 p-3 rounded-2xl cursor-pointer;
+    }
+
+    .badge {
+        @apply bg-base-300 text-base-100 font-bold m-3 p-3 rounded-2xl border border-gray-200 shadow flex items-center justify-center;
+    }
+
+    .copyId {
+        @apply bg-white text-black font-bold m-3 p-3 rounded-2xl border border-gray-400 shadow flex mr-1 cursor-pointer;
+    }
+
+    /* NoChatSelected */
+    .NoChat {
+        @apply w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center animate-bounce;
+    }
+
+    /* Message */
+    .message {
+        @apply max-w-[80%] rounded-xl p-3 shadow-sm;
+    }
+
+    /* InputMessage */
+    .XBtn {
+        @apply absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-base-300 flex items-center justify-center font-bold cursor-pointer;
+    }
+
+    /* Sidebar */
+    .sidebarHead {
+        @apply border-b border-base-300 w-full p-5;
+    }
+
+    .sidebarUsers {
+        @apply overflow-y-auto w-full py-3;
+    }
+
+    /* User */
+    .selectedUser {
+        @apply bg-base-300 ring-1 ring-base-300;
+    }
+
+    .online {
+        @apply absolute bottom-0 right-0 size-3 bg-green-500 rounded-full ring-2 ring-zinc-900;
+    }
+}
+
+.banner1 {
+    animation: flashing-1 1s linear infinite alternate;
+}
+
+.banner2 {
+    animation: flashing-2 1s linear infinite alternate;
+}
+
+@keyframes flashing-1 {
+    from {
+        background-color: #c0c0c0;
+        opacity: 0.2;
+    }
+  
+    to {
+        background-color: #808080;
+        opacity: 0.7;
+    }
+}
+
+@keyframes flashing-2 {
+    from {
+        background-color: #333;
+        opacity: 0.2;
+    }
+  
+    to {
+        background-color: #9999;
+        opacity: 0.7;
+    }
+}
