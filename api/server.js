@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import passport from "passport";
+import path from 'path';
 
 import { Server } from 'socket.io';
 
@@ -77,6 +78,17 @@ httpServer.listen(PORT, () => {
     console.log(`🚀 GraphQL: http://localhost:${PORT}/graphql`);
     console.log(`⚡ Socket.IO running on port ${PORT}`);
 });
+
+// Deployment setup
+const __dirname = path.resolve();
+
+if(process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, '../client/dist')));
+
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, '../client', 'dist', 'index.html'));
+    });
+}
 
 
 // const { url } = await startStandaloneServer(apolloServer);
